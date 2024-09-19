@@ -14,10 +14,26 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from datetime import datetime
 
 
 logger = logging.getLogger(__name__)
 
+class LoginUsuario(LoginView):
+    template_name = 'login.html'
+    def form_invalid(self, form):
+        username = form.cleaned_data.get('username')
+        print(username)
+        user_exists = User.objects.filter(username=username).exists()
+
+        error_messages = {
+            'invalid_login': gettext_lazy('Verifique o usuário e senha e tente novamente.'),
+            'inactive': gettext_lazy('Usuário inativo.'),
+        }
+        print(error_messages['invalid_login'])
+        AuthenticationForm.error_messages = error_messages
+        return super().form_invalid(form)
+    
 
 class IndexView(TemplateView):
     template_name = '1.html'
@@ -60,6 +76,7 @@ def calcular_dizimos_por_ano():
 
     return "Cálculo e salvamento de dízimos concluído."
     
+
 class ListAvaliacoesView(TemplateView):
     template_name = 'itens-fornecedores.html'
    
@@ -68,23 +85,27 @@ class ListAvaliacoesView(TemplateView):
         
         avaliacoes = Avaliacao.objects.all().order_by('-id')
         mensagem = calcular_dizimos_por_ano()
-        prev_diz = PrevDizimos.objects.all()
-        context = {'avaliacoes':avaliacoes}
+        ano_atual = datetime.now().year
+
+        # Obter todas as avaliações
+        avaliacoes = Avaliacao.objects.all().order_by('-id')
+        
+        # Calcular dízimos (se necessário, ajuste essa função conforme sua lógica)
+        mensagem = calcular_dizimos_por_ano()
+
+        # Filtrar dízimos pelo ano atual
+        prev_diz = PrevDizimos.objects.filter(ano=ano_atual)
+
+        # Criar contexto
+        context = {
+            'avaliacoes': avaliacoes,
+            'dizimos': [dizimo.valor for dizimo in prev_diz]
+        }
         return render(request, self.template_name, context)
     
 
-class LoginUsuario(LoginView):
-    template_name = 'login.html'
-    def form_invalid(self, form):
-        username = form.cleaned_data.get('username')
-        print(username)
-        user_exists = User.objects.filter(username=username).exists()
-
-        error_messages = {
-            'invalid_login': gettext_lazy('Verifique o usuário e senha e tente novamente.'),
-            'inactive': gettext_lazy('Usuário inativo.'),
-        }
-        print(error_messages['invalid_login'])
-        AuthenticationForm.error_messages = error_messages
-        return super().form_invalid(form)
-    
+def detalhe_avaliacao_htmx(request,va_id):
+    print("aqui")
+    av = Avaliacao.objects.get(id=va_id)
+    print(av.nome)
+    return render(request,'parciais/detalhe_avaliacao.html',{'avaliacao':av})

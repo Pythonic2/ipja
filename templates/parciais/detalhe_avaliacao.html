@@ -1,0 +1,95 @@
+<div class="container mt-5">
+    <h1>Detalhes da Avaliação</h1>
+    <div class="list-group">
+        <div class="list-group-item">
+            <span><strong>Nome:</strong></span> {{ avaliacao.nome }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Sexo:</strong></span> {{ avaliacao.get_sexo_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Nascimento:</strong></span> {{ avaliacao.nascimento|date:"d/m/Y" }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Celular:</strong></span> {{ avaliacao.celular }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Social:</strong></span> {{ avaliacao.social }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Relação:</strong></span> {{ avaliacao.get_relacao_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Sociedades:</strong></span> {{ avaliacao.get_sociedade_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Sobre a Igreja:</strong></span> {{ avaliacao.sobre_a_igreja }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Louvor:</strong></span> {{ avaliacao.get_louvor_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Visitação:</strong></span> {{ avaliacao.get_visita_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Recepção:</strong></span> {{ avaliacao.get_recepcao_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Evangelização:</strong></span> {{ avaliacao.get_evangelizacao_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Comunicação:</strong></span> {{ avaliacao.get_comunicacao_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Escola Dominical:</strong></span> {{ avaliacao.get_escola_dominical_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Diáconos:</strong></span> {{ avaliacao.get_diaconos_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Observação Diáconos:</strong></span> {{ avaliacao.observacao_diaconos }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Presbíteros:</strong></span> {{ avaliacao.get_presbiteros_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Observação Presbíteros:</strong></span> {{ avaliacao.observacao_presbiteros }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Pastor:</strong></span> {{ avaliacao.get_pastor_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Observação Pastor:</strong></span> {{ avaliacao.observacao_pastor }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Seu Compromisso:</strong></span> {{ avaliacao.get_seu_compromisso_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Leitura:</strong></span> {{ avaliacao.get_leitura_display }}
+        </div>
+        <div class="list-group-item">
+            <span><strong>Áreas de Interesse:</strong></span>
+            <ul>
+                <li><strong>Comunicação:</strong> {{ avaliacao.area_interesse_comunicacao }}</li>
+                <li><strong>Evangelismo e Missões:</strong> {{ avaliacao.area_interesse_evangelismo_missoes }}</li>
+                <li><strong>Projeto Viver:</strong> {{ avaliacao.area_interesse_projeto_viver }}</li>
+                <li><strong>Departamento Infantil:</strong> {{ avaliacao.area_interesse_departamento_infantil }}</li>
+                <li><strong>Ação Social/Diaconia:</strong> {{ avaliacao.area_interesse_acao_social_diaconia }}</li>
+                <li><strong>Visitação:</strong> {{ avaliacao.area_interesse_visitacao }}</li>
+                <li><strong>Recepção:</strong> {{ avaliacao.area_interesse_recepcao }}</li>
+                <li><strong>Zeladoria:</strong> {{ avaliacao.area_interesse_zeladoria }}</li>
+                <li><strong>Eventos:</strong> {{ avaliacao.area_interesse_eventos }}</li>
+                <li><strong>Pregação:</strong> {{ avaliacao.area_interesse_pregacao }}</li>
+                <li><strong>Ensino:</strong> {{ avaliacao.area_interesse_ensino }}</li>
+                <li><strong>Secretaria:</strong> {{ avaliacao.area_interesse_secretaria }}</li>
+                <li><strong>Louvor:</strong> {{ avaliacao.area_interesse_louvor }}</li>
+            </ul>
+        </div>
+        <div class="list-group-item">
+            <span><strong>Dízimo:</strong></span> <span class="badge bg-success">R$ {{ avaliacao.dizimo|floatformat:2 }}</span>
+        </div>
+        <div class="list-group-item">
+            <span><strong>Data da Avaliação:</strong></span> {{ avaliacao.data_avaliacao|date:"d/m/Y" }}
+        </div>
+    </div>
+</div>

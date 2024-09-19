@@ -20,71 +20,66 @@
             <div class="wrap-login100 desktop">
 
                 <h2>Avaliações</h2>
+                
+                  {% for dizimo in dizimos %}
+                    <span>Previsão Dízimo:<strong><span class="badge bg-success">{{dizimo}}</span></strong></span><br>
+                  {% endfor %}
                 <span><strong>{{usuario}}</strong><br>
-                <span>- <strong>-</strong></span><br>
+                
                 <span>-<strong> -</strong></span><br>
                 
-				      <table class="table table-hover">
-                <span class="selo"><img src="/static/images/labdscap-removebg-preview.png" class="landscap" alt="" style="width: 40%; float: right;"></span>
-                    <thead>
+                <table class="table table-hover">
+                  <span class="selo"><img src="/static/images/labdscap-removebg-preview.png" class="landscap" alt="" style="width: 40%; float: right;"></span>
+                  <thead>
                       <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Relação com a Igreja</th>
-                        <th scope="col">Avaliação dos Diaconos</th>
-                        <th scope="col">Avaliação dos Presbíteros</th>
-                        <th scope="col">Avaliação do Pastor</th>
-                        <th scope="col">Dízimo</th>
-                        <th scope="col">Data Av.</th>
-                        
+                          <th scope="col"><strong>Nome</strong></th>
+                          <th scope="col"><strong>Relação com a Igreja</strong></th>
+                          <th scope="col"><strong>Avaliação dos Diaconos</strong></th>
+                          <th scope="col"><strong>Avaliação dos Presbíteros</strong></th>
+                          <th scope="col"><strong>Avaliação do Pastor</strong></th>
+                          <th scope="col"><strong>Dízimo</strong></th>
+                          <th scope="col"><strong>Data Av.</strong></th>
                       </tr>
-                    </thead>
-                    <tbody>
-                        {%for av in avaliacoes %}
+                  </thead>
+                  <tbody>
+                      {% for av in avaliacoes %}
                       <tr>
-                          
-                            
-                            <td><a href="{{av.id}}" target="_blank">{{av.nome}}</a></td>
-                            
-                            <td>{{av.relacao}}</td>
-                            <td>{{av.diaconos}}</td>
-
-                            <td>{{av.presbiteros}}</td>
-                            <td>{{av.pastor}}</td>
-                            <td>{{av.dizimo}}</td>
-                            <td>{{av.data_avaliacao | date:'d/m/y'}}</td>
-                            
-
-                       
-                    </tr>
-                    {%endfor%}
-                     
+                          <td>
+                              <a href="#" hx-post="{% url 'detalhe-avaliacao' av.id %}" 
+                                 hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' 
+                                 hx-target="#avaliacao" 
+                                 hx-swap="innerHTML">
+                                 {{ av.nome }}
+                              </a>
+                          </td>
+                          <td>{{ av.relacao }}</td>
+                          <td>{{ av.diaconos }}</td>
+                          <td>{{ av.presbiteros }}</td>
+                          <td>{{ av.pastor }}</td>
+                          <td><span class="badge bg-success">R$ {{ av.dizimo|floatformat:2 }}</span></td>
+                          <td>{{ av.data_avaliacao | date:'d/m/Y' }}</td>
                       </tr>
-                    </tbody>
-                  </table>
+                      {% endfor %}
+                  </tbody>
+              </table>
+              
                  
             </div>
-            <div class="wrap-login100 desktop">
-              <h2>Alguns detalhes:</h2>
-              <div><p>Previsão de Dízimo para o Próximo Ano: {{total_diz}}</p></div>
-              <ul>
-                -
-              </ul>
+            <div class="wrap-login100 desktop" id="avaliacao">
+              {% include 'parciais/detalhe_avaliacao.html'%}
             </div>
-
-            {%for av in avaliacoes%}
             <div class="wrap-login100 mobile">
-              <ul>
-               
+                <ul>
+                  {%for av in avaliacoes%}
+                  
+                      <li>Nome: <strong>{{av.nome}}</strong></li>
                 
-                <li>Nome: <strong>{{av.nome}}</strong></li>
-               
-                <li>Data do Recebimento: <strong>{{produto.data_recebimento | date:'d/m/y'}}</strong></li>
-                
-               
-              </ul>
+                  
+                  {%endfor%}
+                </ul>
              
             </div>
-          {%endfor%}
+ 
           
           
           <div class="wrap-login100 mobile">
@@ -106,7 +101,13 @@
   
 
 
-  
+  <script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
 	
 </body>
 </html>
