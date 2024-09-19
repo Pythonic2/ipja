@@ -29,12 +29,13 @@
                     <thead>
                       <tr>
                         <th scope="col">Nome</th>
-                        <th scope="col">Valor Anunciado</th>
-                        <th scope="col">Valor Fornecedor</th>
-                        <th scope="col">Recebimento da Peça</th>
-                        <th scope="col">Observações</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Status Pagamento</th>
+                        <th scope="col">Relação com a Igreja</th>
+                        <th scope="col">Avaliação dos Diaconos</th>
+                        <th scope="col">Avaliação dos Presbíteros</th>
+                        <th scope="col">Avaliação do Pastor</th>
+                        <th scope="col">Dízimo</th>
+                        <th scope="col">Data Av.</th>
+                        
                       </tr>
                     </thead>
                     <tbody>
@@ -42,9 +43,15 @@
                       <tr>
                           
                             
-                            <td>{{av.diaconos}}</td>
+                            <td><a href="{{av.id}}" target="_blank">{{av.nome}}</a></td>
                             
-                            <td>{{av.nascimento | date:'d/m/y'}}</td>
+                            <td>{{av.relacao}}</td>
+                            <td>{{av.diaconos}}</td>
+
+                            <td>{{av.presbiteros}}</td>
+                            <td>{{av.pastor}}</td>
+                            <td>{{av.dizimo}}</td>
+                            <td>{{av.data_avaliacao | date:'d/m/y'}}</td>
                             
 
                        
@@ -57,8 +64,8 @@
                  
             </div>
             <div class="wrap-login100 desktop">
-              <h2>Observações/Comprovantes</h2>
-              <div><p>-</p></div>
+              <h2>Alguns detalhes:</h2>
+              <div><p>Previsão de Dízimo para o Próximo Ano: {{total_diz}}</p></div>
               <ul>
                 -
               </ul>
@@ -87,7 +94,7 @@
             
           </div>
           <div class="wrap-login100 mobile">
-            <h2>Observações</h2>
+            <h2>Observações {{total_diz}}</h2>
             <div><p>-</p></div>
             <ul>
               -

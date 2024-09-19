@@ -32,6 +32,8 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_AGE = 31449600  # 1 ano em segundos
 CSRF_COOKIE_SECURE = True  # Garante que o CSRF cookie só será enviado sobre HTTPS
 
+LOGIN_REDIRECT_URL = 'avaliacoes'
+LOGIN_URL = 'login'
 # Application definition
 
 INSTALLED_APPS = [
