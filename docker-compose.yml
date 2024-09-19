@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  lista_tarefas:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    pull_policy: build
+    restart: always
+    ports:
+      - 8004:8004
+    # env_file:
+    #   - stack.env
+    networks:
+      - cloudflare_default
+    volumes:
+      - lista_tarefas_db:/var/lib/postgresql/data
+      - user_listas:/app/
+
+volumes:
+  lista_tarefas_db:
+  user_listas:
+
+networks:
+  cloudflare_default:
+    external: true
