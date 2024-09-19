@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% include 	'parciais/head.html'%}
+<style>
+
+	.input100 label {
+  display: inline-block !important;
+  margin-right: 15px !important; /* Espaço entre os checkboxes */
+}
+
+.input100 input[type="checkbox"] {
+  margin-right: -10px !important; /* Espaço entre o checkbox e o texto */
+}
+</style>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="/static/images/ipja-logo.jpeg" alt="IMG">
+				</div>
+				
+				<form class="login100-form" method="post">
+					{% csrf_token %}
+					{{erros}}
+					<div class="vapo" style="display: none; justify-content: center;align-items: center;">
+						<img src="/static/images/ipja-logo.jpeg" class="logo center vapo" style="width:50%;">
+					</div>
+					<div class="step" id="step-1">
+						<span class="login100-form-title">
+							Sobre Você
+						</span>
+
+						<div class="wrap-input100" >
+							{{form.nome}}
+
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+
+						<div class="wrap-input100">
+							{{form.sexo}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-venus-mars" aria-hidden="true"></i>
+
+							</span>
+						</div>
+
+						<div class="wrap-input100">
+							{{form.nascimento}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-calendar" aria-hidden="true"></i>
+
+							</span>
+						</div>
+
+						<div class="wrap-input100">
+							{{form.celular}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-phone" aria-hidden="true"></i>
+
+							</span>
+						</div>
+						
+						<div class="wrap-input100">
+							{{form.social}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+								<i class="fa fa-instagram" aria-hidden="true"></i>
+							</span>
+						</div>
+						<button type="button" class="login100-form-btn" onclick="nextStep(2)">Próximo</button><br>
+
+					</div>
+					<div class="step" id="step-2" style="display:none;">
+						<div class="wrap-input100">
+							<span class="login100-form-title">
+								Sua relação com a Igreja:
+							</span>
+							<label for=""><strong>Você é:</strong></label>
+							{{form.relacao}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<label for=""><strong>Sociedades</strong></label>
+							{{form.sociedade}}
+							
+						</div>
+						
+    					<button type="button" class="login100-form-btn" onclick="nextStep(3)">Próximo</button><br>
+						<button type="button" class="login100-form-btn" onclick="prevStep(1)">Anterior</button>
+					</div>
+					<div class="step" id="step-3" style="display:none;">
+						<div class="wrap-input100">
+							<label for=""><strong>Como Você Enxerga a Igreja?</strong></label>
+							{{form.sobre_a_igreja}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						
+						<button type="button" class="login100-form-btn" onclick="nextStep(4)">Próximo</button><br>
+						<button type="button" class="login100-form-btn" onclick="prevStep(2)">Anterior</button>
+
+					</div>
+					<div class="step" id="step-4" style="display:none;">
+						<div class="wrap-input100">
+							<label for=""><strong>Como Você Avalia o  Louvor?</strong></label>
+							{{form.louvor}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+
+						<div class="wrap-input100">
+							<label for=""><strong>Como Você Avalia a Visitação?</strong></label>
+
+							{{form.visitacao}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<label for=""><strong>Como Você Avalia a Recepção?</strong></label>
+
+							{{form.recepcao}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<label for=""><strong>Como Você Avalia nosso Evangelismo?</strong></label>
+
+							{{form.evengelizacao}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<label for=""><strong>Como Você Avalia a Comunicação?</strong></label>
+
+							{{form.comunicacao}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<label for=""><strong>Como Você Avalia a E. Dominical?</strong></label>
+
+							{{form.escola_dominical}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<label for=""><strong>Atuação dos Diáconos?</strong></label>
+
+							{{form.diaconos}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						
+						<div class="wrap-input100">
+
+							{{form.observacao_diaconos}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+
+						<div class="wrap-input100">
+							<label for=""><strong>Atuação dos Presbíteros?</strong></label>
+							{{form.presbiteros}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+
+							{{form.observacao_presbiteros}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+
+						<div class="wrap-input100">
+							<label for=""><strong>Atuação do Pastor?</strong></label>
+
+							{{form.pastor}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+
+							{{form.observacao_pastor}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						
+						<button type="button" class="login100-form-btn" onclick="nextStep(5)">Próximo</button><br>
+						<button type="button" class="login100-form-btn" onclick="prevStep(3)">Anterior</button>
+
+					</div>
+					<div class="step" id="step-5" style="display:none;">
+						<div class="wrap-input100">
+							<p><strong>Avaliação Pessoal</strong></p><br>
+							<label for="">Seu Compromisso</label>
+							{{form.seu_compromisso}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<label for="">Leitura Bíblica/oração</label>
+							{{form.leitura}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						
+						<button type="button" class="login100-form-btn" onclick="nextStep(6)">Próximo</button><br>
+						<button type="button" class="login100-form-btn" onclick="prevStep(4)">Anterior</button>
+					</div>
+					
+					<div class="step" id="step-6" style="display:none;">
+						<div class="wrap-input100">
+							<br>
+							<span class="login100-form-title">
+								Quanto vc pode Contribuir em 2025?
+							</span>
+
+							
+							<label for=""><strong>Comunicação</strong></label>
+							
+							{{form.area_interesse_comunicacao}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Evangelismo e Missoes</label>
+							
+							{{form.area_interesse_evangelismo_missoes}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Projeto Viver</label>
+							
+							{{form.area_interesse_projeto_viver}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Departamento Infatil</label>
+							
+							{{form.area_interesse_departamento_infantil}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Ação Social e Diaconia</label>
+							
+							{{form.area_interesse_acao_social_diaconia}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Visitação</label>
+							
+							{{form.area_interesse_visitacao}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Recepção</label>
+							
+							{{form.area_interesse_recepcao}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Zedaloria e Limpeza</label>
+							
+							{{form.area_interesse_zeladoria}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Eventos</label>
+							
+							{{form.area_interesse_eventos}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Pregação</label>
+							
+							{{form.area_interesse_pregacao}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Ensino</label>
+							
+							{{form.area_interesse_ensino}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Secretaria</label>
+							
+							{{form.area_interesse_secretaria}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						<div class="wrap-input100">
+							<br>
+							<label for="">Louvor</label>
+							
+							{{form.area_interesse_louvor}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						
+						<button type="button" class="login100-form-btn" onclick="nextStep(7)">Próximo</button><br>
+						<button type="button" class="login100-form-btn" onclick="prevStep(5)">Anterior</button>
+					</div>
+					<div class="step" id="step-7" style="display:none;">
+						<div class="wrap-input100">
+							<br>
+							<label for="">Dízimo</label>
+							
+							{{form.dizimo}}
+							<span class="focus-input100"></span>
+							<span class="symbol-input100">
+							</span>
+						</div>
+						
+						<button type="submit" class="login100-form-btn">Salvar</button><br>
+						<button type="button" class="login100-form-btn" onclick="prevStep(6)">Anterior</button>
+
+					</div>
+					
+					{{invalid_login}}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+<!--===============================================================================================-->	
+	<script src="static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/bootstrap/js/popper.js"></script>
+	<script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="static/vendor/tilt/tilt.jquery.min.js"></script>
+	<script>
+	
+$('.js-tilt').tilt({
+  scale: 1.1
+});
+
+function nextStep(stepNumber) {
+  if (validateStep(stepNumber - 1)) {
+    // Oculta todos os steps
+    var steps = document.querySelectorAll('.step');
+    steps.forEach(function(step) {
+      step.style.display = 'none';
+    });
+
+    // Mostra o próximo step
+    document.getElementById('step-' + stepNumber).style.display = 'block';
+  } else {
+    alert('Por favor, preencha todos os campos obrigatórios antes de continuar.');
+  }
+}
+
+function prevStep(stepNumber) {
+  // Oculta todos os steps
+  var steps = document.querySelectorAll('.step');
+  steps.forEach(function(step) {
+    step.style.display = 'none';
+  });
+
+  // Mostra o step anterior
+  document.getElementById('step-' + stepNumber).style.display = 'block';
+}
+
+function validateStep(stepNumber) {
+  var step = document.getElementById('step-' + stepNumber);
+  var inputs = step.querySelectorAll('input, select, textarea');
+  var valid = true;
+
+  inputs.forEach(function(input) {
+    if (input.type === 'checkbox') {
+      var checkboxes = step.querySelectorAll('input[type="checkbox"]');
+      var checked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+      if (!checked) valid = false;
+    } else if (input.type === 'radio') {
+      var radios = step.querySelectorAll('input[type="radio"]');
+      var checked = Array.from(radios).some(radio => radio.checked);
+      if (!checked) valid = false;
+    } else if (!input.value) {
+      valid = false;
+    }
+  });
+
+  console.log('Step ' + stepNumber + ' valid:', valid);
+  return valid;
+}
+
+	  </script>
+	  
+<!--===============================================================================================-->
+	<script src="static/js/main.js"></script>
+
+</body>
+</html>
