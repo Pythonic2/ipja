@@ -33,6 +33,7 @@
 						</span>
 
 						<div class="wrap-input100" >
+							<label for=""><strong>Nome Completo:</strong></label>
 							{{form.nome}}
 
 							<span class="focus-input100"></span>
@@ -50,7 +51,7 @@
 						</div>
 
 						<div class="wrap-input100">
-							
+							<label for=""><strong>Nascimento:</strong></label>
 							{{form.nascimento}}
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
@@ -84,6 +85,7 @@
 								Sua relação com a Igreja:
 							</span>
 							<label for=""><strong>Você é:</strong></label>
+
 							{{form.relacao}}
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
@@ -401,55 +403,83 @@ $('.js-tilt').tilt({
   scale: 1.1
 });
 
+// Função para avançar ao próximo passo
 function nextStep(stepNumber) {
-  if (validateStep(stepNumber - 1)) {
-    // Oculta todos os steps
-    var steps = document.querySelectorAll('.step');
-    steps.forEach(function(step) {
-      step.style.display = 'none';
-    });
-
-    // Mostra o próximo step
-    document.getElementById('step-' + stepNumber).style.display = 'block';
-  } else {
-    alert('Por favor, preencha todos os campos obrigatórios antes de continuar.');
+	if (validateStep(stepNumber - 1)) {
+	  // Oculta todos os steps
+	  var steps = document.querySelectorAll('.step');
+	  steps.forEach(function(step) {
+		step.style.display = 'none';
+	  });
+  
+	  // Mostra o próximo step
+	  document.getElementById('step-' + stepNumber).style.display = 'block';
+	} else {
+	  alert('Por favor, observe e preencha todos os campos obrigatórios corretamente.');
+	}
   }
-}
-
-function prevStep(stepNumber) {
-  // Oculta todos os steps
-  var steps = document.querySelectorAll('.step');
-  steps.forEach(function(step) {
-    step.style.display = 'none';
-  });
-
-  // Mostra o step anterior
-  document.getElementById('step-' + stepNumber).style.display = 'block';
-}
-
-function validateStep(stepNumber) {
-  var step = document.getElementById('step-' + stepNumber);
-  var inputs = step.querySelectorAll('input, select, textarea');
-  var valid = true;
-
-  inputs.forEach(function(input) {
-    if (input.type === 'checkbox') {
-      var checkboxes = step.querySelectorAll('input[type="checkbox"]');
-      var checked = Array.from(checkboxes).some(checkbox => checkbox.checked);
-      if (!checked) valid = false;
-    } else if (input.type === 'radio') {
-      var radios = step.querySelectorAll('input[type="radio"]');
-      var checked = Array.from(radios).some(radio => radio.checked);
-      if (!checked) valid = false;
-    } else if (!input.value) {
-      valid = false;
-    }
-  });
-
-  console.log('Step ' + stepNumber + ' valid:', valid);
-  return valid;
-}
-
+  
+  // Função para voltar ao passo anterior
+  function prevStep(stepNumber) {
+	// Oculta todos os steps
+	var steps = document.querySelectorAll('.step');
+	steps.forEach(function(step) {
+	  step.style.display = 'none';
+	});
+  
+	// Mostra o step anterior
+	document.getElementById('step-' + stepNumber).style.display = 'block';
+  }
+  
+  // Função para validar o passo atual
+  function validateStep(stepNumber) {
+	var step = document.getElementById('step-' + stepNumber);
+	var inputs = step.querySelectorAll('input, select, textarea');
+	var valid = true;
+	var showAlert = false;  // Variável para controlar exibição de alertas
+  
+	inputs.forEach(function(input) {
+	  // Ignorar o campo com id "id_social" e campos textarea (observações)
+	  if (input.id === 'id_social' || input.tagName.toLowerCase() === 'textarea') {
+		return;  // Ignora esses campos
+	  }
+  
+	  // Validação de input numérico entre 1 e 5
+	  if (input.type === 'number') {
+		var value = parseInt(input.value, 10);
+		
+		// Verifica se o campo numérico está preenchido e dentro do intervalo permitido
+		if (!input.value || value < 1 || value > 5) {
+		  valid = false;
+		  showAlert = true;  // Marca para exibir alerta depois
+		}
+	  }
+  
+	  // Validação de checkboxes (mínimo 1, máximo 5)
+	  else if (input.type === 'checkbox') {
+		var checkboxes = step.querySelectorAll('input[type="checkbox"]');
+		var checkedCount = Array.from(checkboxes).filter(checkbox => checkbox.checked).length;
+		if (checkedCount < 1 || checkedCount > 5) {
+		  valid = false;
+		}
+	  }
+  
+	  // Validação de outros tipos de input (exceto textarea e campos ignorados)
+	  else if (!input.value) {
+		valid = false;
+	  }
+	});
+  
+	// Exibir o alerta somente se o valor do número estiver fora do intervalo
+	if (showAlert) {
+	  alert('Os valores numéricos devem estar entre 1 e 5.');
+	}
+  
+	console.log('Step ' + stepNumber + ' valid:', valid);
+	return valid;
+  }
+  
+  
 	  </script>
 	  
 <!--===============================================================================================-->

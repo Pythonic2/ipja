@@ -39,12 +39,15 @@ class AvaliacaoForm(forms.ModelForm):
             }
         ))
     social = forms.CharField(
+        required=False,  # Indica que o campo não é obrigatório no formulário
         widget=forms.TextInput(
             attrs={
                 "placeholder": "Redes Sociais",
-                "class": "input100"
+                "class": "input100",
             }
-        ))
+        )
+    )
+
     relacao = forms.ChoiceField(choices=Avaliacao.RELACAO_CHOICES,
         widget=forms.Select(
             attrs={
@@ -63,6 +66,7 @@ class AvaliacaoForm(forms.ModelForm):
         )
     )
     sobre_a_igreja = forms.CharField(
+        required=False,
         widget=forms.Textarea(
             attrs={
                 "placeholder": "Como enxegar a IP josé Américo",
@@ -159,7 +163,9 @@ class AvaliacaoForm(forms.ModelForm):
             }
         ))
     observacao_diaconos = forms.CharField(
+        required=False,
         widget=forms.Textarea(
+            
             attrs={
                 "placeholder": "Observações sobre a junta Diaconal?",
                 "class": "input100"
@@ -167,7 +173,9 @@ class AvaliacaoForm(forms.ModelForm):
         ))
     
     observacao_presbiteros = forms.CharField(
+        required=False,
         widget=forms.Textarea(
+            
             attrs={
                 "placeholder": "Observações sobre a Atuação Presbiteral?",
                 "class": "input100"
@@ -175,7 +183,9 @@ class AvaliacaoForm(forms.ModelForm):
         ))
     
     observacao_pastor = forms.CharField(
+        required=False,
         widget=forms.Textarea(
+            
             attrs={
                 "placeholder": "Observações sobre a Atuação Pastoral?",
                 "class": "input100"
@@ -193,6 +203,7 @@ class AvaliacaoForm(forms.ModelForm):
         ))
     area_interesse_evangelismo_missoes = forms.CharField(
         widget=forms.TextInput(
+            
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
