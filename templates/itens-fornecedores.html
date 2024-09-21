@@ -24,9 +24,8 @@
                   {% for dizimo in dizimos %}
                     <span>Previsão Dízimo:<strong><span class="badge bg-success">{{dizimo}}</span></strong></span><br>
                   {% endfor %}
-                <span><strong>{{usuario}}</strong><br>
+                <span><strong>{{request.user.username}}</strong><br>
                 
-                <span>-<strong> -</strong></span><br>
                 
                 <table class="table table-hover">
                   <span class="selo"><img src="/static/images/labdscap-removebg-preview.png" class="landscap" alt="" style="width: 40%; float: right;"></span>
