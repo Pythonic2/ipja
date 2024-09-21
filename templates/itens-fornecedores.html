@@ -67,34 +67,28 @@
             <div class="wrap-login100 desktop" id="avaliacao">
               {% include 'parciais/detalhe_avaliacao.html'%}
             </div>
+            {%for av in avaliacoes%}
             <div class="wrap-login100 mobile">
-                <ul>
-                  {%for av in avaliacoes%}
-                  
-                      <li>Nome: <strong>{{av.nome}}</strong></li>
+              <ul>
+               
+              
+                <li><strong>Nome:</strong> {{av.nome}}</li>
+                <li><strong>Relação com a Igreja:</strong>{{av.relacao}}</li>
+                <li><strong>Avaliação dos Diaconos: </strong> {{av.diaconos}}</li>
+                <li><strong>Avaliação do Presbiteros:</strong> {{av.presbiteros}}</li>
+                <li><strong>Avaliação do Pastor:</strong> {{av.pastor}}</li>
+                <li><strong>Data da Avaliação:</strong><br> {{av.data_avaliacao | date:'d/m/y'}}</li>
+                <li><strong>Avaliação dos Presbíteros:</strong> <span class="badge bg-success">{{av.dizimo}}</span></li>
                 
-                  
-                  {%endfor%}
-                </ul>
-             
+                <a href="{% url 'detalhe-avaliacao-mobile' av.id%}">Ver Avaliação</a>
+              </ul>
+              
             </div>
- 
+          {%endfor%}
           
           
-          <!-- <div class="wrap-login100 mobile">
-            <p><span>Cadastrados até o Momento: <strong>-</strong></span></p>
-            <p><span>Vendidos: <strong>-</strong></span></p>
-            <p><span>Pago até Hoje: <strong>- </strong></span></p>
-            
-          </div>
-          <div class="wrap-login100 mobile">
-            <h2>Observações {{total_diz}}</h2>
-            <div><p>-</p></div>
-            <ul>
-              -
-            </ul>
-          </div> -->
-		</div>
+          
+          
     
 	</div>
   

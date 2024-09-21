@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import IndexView,ListAvaliacoesView, LoginUsuario, detalhe_avaliacao_htmx, sucesso
+from .views import IndexView,ListAvaliacoesView, LoginUsuario, detalhe_avaliacao_htmx, sucesso,detalhe_avaliacao_mobile
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import handler404
@@ -13,6 +13,7 @@ urlpatterns = [
     path('login/', LoginUsuario.as_view(), name='login'),
     path('sucesso/',sucesso, name='sucesso'),
     path('detalhe-avaliacao/<int:va_id>/', detalhe_avaliacao_htmx, name='detalhe-avaliacao'),
+    path('detalhe-avaliacao-mobile/<int:va_id>/', detalhe_avaliacao_mobile, name='detalhe-avaliacao-mobile'),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

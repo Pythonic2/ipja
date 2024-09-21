@@ -46,11 +46,11 @@ class IndexView(TemplateView):
     def post(self, request):
         form = AvaliacaoForm(request.POST)
         if form.is_valid():
-            print('aqyu')
             form.save()
+            
             return redirect('sucesso')  # Remover a vírgula aqui
         else:
-            
+            print(form.errors)
             context = {'form': form,'erros':form.errors}
             return render(request, self.template_name, context)
 
@@ -109,5 +109,9 @@ def detalhe_avaliacao_htmx(request,va_id):
     print(av.nome)
     return render(request,'parciais/detalhe_avaliacao.html',{'avaliacao':av})
 
+def detalhe_avaliacao_mobile(request,va_id):
+    av = Avaliacao.objects.get(id=va_id)
+    print(av.nome)
+    return render(request,'detalhe-av.html',{'avaliacao':av})
 def sucesso(request):
     return render(request, 'sucesso.html')

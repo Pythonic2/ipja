@@ -192,144 +192,172 @@ class AvaliacaoForm(forms.ModelForm):
             }
         ))
     area_interesse_comunicacao = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1",
+                "max":"5", "min":"0",
+"value":"0",
                
             }
         ))
     area_interesse_evangelismo_missoes = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1",
+                "max":"5", "min":"0",
+"value":"0",
                
             }
         ))
     area_interesse_projeto_viver = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1",
+                "max":"5", "min":"0",
+"value":"0",
                
             }
         ))
     area_interesse_departamento_infantil = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0",
                
             }
         ))
     area_interesse_acao_social_diaconia = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0"
                
             }
         ))
     area_interesse_visitacao = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0",
                
             }
         ))
     area_interesse_recepcao = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0",
                
             }
         ))
     area_interesse_zeladoria = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0",
                
             }
         ))
     area_interesse_eventos = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0", 
                
             }
         ))
     area_interesse_ensino = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0",
                
             }
         ))
     area_interesse_secretaria = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0", 
                
             }
         ))
     area_interesse_comunicacao = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0", 
                
             }
         ))
     
     area_interesse_louvor = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0", 
                
             }
         ))
     area_interesse_pregacao = forms.CharField(
+        required=False,
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"1", "min":"1"
+                "max":"5", "min":"0",
+"value":"0",
                
             }
         ))

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+{% include 	'parciais/head.html'%}
+<style>
+
+	.input100 label {
+  display: inline-block !important;
+  margin-right: 15px !important; /* Espaço entre os checkboxes */
+}
+
+.input100 input[type="checkbox"] {
+  margin-right: -10px !important; /* Espaço entre o checkbox e o texto */
+}
+</style>
+<body>
+
+
+    {% include 'parciais/detalhe_avaliacao.html'%}
+
+	<script src="static/js/main.js"></script>
+    <script>
+	
+        $('.js-tilt').tilt({
+          scale: 1.1
+        });
+    </script>
+</body>
+</html>

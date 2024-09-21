@@ -403,6 +403,7 @@ $('.js-tilt').tilt({
 });
 
 // Função para avançar ao próximo passo
+// Função para avançar ao próximo passo
 function nextStep(stepNumber) {
 	if (validateStep(stepNumber - 1)) {
 	  // Oculta todos os steps
@@ -438,8 +439,9 @@ function nextStep(stepNumber) {
 	var showAlert = false;  // Variável para controlar exibição de alertas
   
 	inputs.forEach(function(input) {
-	  // Ignorar o campo com id "id_social" e campos textarea (observações)
-	  if (input.id === 'id_social' || input.tagName.toLowerCase() === 'textarea') {
+	  // Ignorar o campo com id "id_social", campos textarea, e campos com max="5" e min="1"
+	  if (input.id === 'id_social' || input.tagName.toLowerCase() === 'textarea' || 
+		  (input.type === 'number' && input.max === "5" && input.min === "0")) {
 		return;  // Ignora esses campos
 	  }
   
@@ -477,6 +479,7 @@ function nextStep(stepNumber) {
 	console.log('Step ' + stepNumber + ' valid:', valid);
 	return valid;
   }
+  
   
   
 	  </script>

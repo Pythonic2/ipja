@@ -88,11 +88,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
-        'PASSWORD':os.getenv('DB_PASSWORD'),
-        'HOST':  os.getenv('DB_HOST'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
         'PORT': os.getenv('DB_PORT'),
-         'OPTIONS': {
-            'options': '-c search_path=ipja'  # Substitua 'seu_esquema' pelo nome do seu esquema
+        'OPTIONS': {
+            'options': '-c search_path=ipja'
         }
     }
 }

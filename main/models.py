@@ -63,55 +63,55 @@ class Avaliacao(models.Model):
     seu_compromisso = models.CharField(max_length=30, choices=QUALIDADE_PESSOAL_CHOICES)
     leitura = models.CharField(max_length=30, choices=QUALIDADE_PESSOAL_CHOICES)
     area_interesse_comunicacao = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_evangelismo_missoes = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_projeto_viver = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)], blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_departamento_infantil = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_acao_social_diaconia = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_visitacao = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_recepcao = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_zeladoria = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_eventos = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_pregacao = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_ensino = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_secretaria = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     area_interesse_louvor = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)],  # Restringe o valor a 1 dígito, de 1 a 5
+        validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
     dizimo = models.DecimalField(max_digits=10, decimal_places=2,default=0)

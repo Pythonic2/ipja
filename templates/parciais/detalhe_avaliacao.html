@@ -70,19 +70,20 @@
         <div class="list-group-item">
             <span><strong>Áreas de Interesse:</strong></span>
             <ul>
-                <li><strong>Comunicação:</strong> {{ avaliacao.area_interesse_comunicacao }}</li>
-                <li><strong>Evangelismo e Missões:</strong> {{ avaliacao.area_interesse_evangelismo_missoes }}</li>
-                <li><strong>Projeto Viver:</strong> {{ avaliacao.area_interesse_projeto_viver }}</li>
-                <li><strong>Departamento Infantil:</strong> {{ avaliacao.area_interesse_departamento_infantil }}</li>
-                <li><strong>Ação Social/Diaconia:</strong> {{ avaliacao.area_interesse_acao_social_diaconia }}</li>
-                <li><strong>Visitação:</strong> {{ avaliacao.area_interesse_visitacao }}</li>
-                <li><strong>Recepção:</strong> {{ avaliacao.area_interesse_recepcao }}</li>
-                <li><strong>Zeladoria:</strong> {{ avaliacao.area_interesse_zeladoria }}</li>
-                <li><strong>Eventos:</strong> {{ avaliacao.area_interesse_eventos }}</li>
-                <li><strong>Pregação:</strong> {{ avaliacao.area_interesse_pregacao }}</li>
-                <li><strong>Ensino:</strong> {{ avaliacao.area_interesse_ensino }}</li>
-                <li><strong>Secretaria:</strong> {{ avaliacao.area_interesse_secretaria }}</li>
-                <li><strong>Louvor:</strong> {{ avaliacao.area_interesse_louvor }}</li>
+                <li><strong>Comunicação:</strong> {% if avaliacao.area_interesse_comunicacao > 0 %} {{ avaliacao.area_interesse_comunicacao }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Evangelismo e Missões:</strong> {% if avaliacao.area_interesse_evangelismo_missoes > 0 %} {{ avaliacao.area_interesse_evangelismo_missoes }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Projeto Viver:</strong> {% if avaliacao.area_interesse_projeto_viver > 0 %} {{ avaliacao.area_interesse_projeto_viver }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Departamento Infantil:</strong> {% if avaliacao.area_interesse_departamento_infantil > 0 %} {{ avaliacao.area_interesse_departamento_infantil }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Ação Social/Diaconia:</strong> {% if avaliacao.area_interesse_acao_social_diaconia > 0 %} {{ avaliacao.area_interesse_acao_social_diaconia }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Visitação:</strong> {% if avaliacao.area_interesse_visitacao > 0 %} {{ avaliacao.area_interesse_visitacao }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Recepção:</strong> {% if avaliacao.area_interesse_recepcao > 0 %} {{ avaliacao.area_interesse_recepcao }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Zeladoria:</strong> {% if avaliacao.area_interesse_zeladoria > 0 %} {{ avaliacao.area_interesse_zeladoria }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Eventos:</strong> {% if avaliacao.area_interesse_eventos > 0 %} {{ avaliacao.area_interesse_eventos }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Pregação:</strong> {% if avaliacao.area_interesse_pregacao > 0 %} {{ avaliacao.area_interesse_pregacao }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Ensino:</strong> {% if avaliacao.area_interesse_ensino > 0 %} {{ avaliacao.area_interesse_ensino }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Secretaria:</strong> {% if avaliacao.area_interesse_secretaria > 0 %} {{ avaliacao.area_interesse_secretaria }} {% else %} Não Escolheu {% endif %}</li>
+                <li><strong>Louvor:</strong> {% if avaliacao.area_interesse_louvor > 0 %} {{ avaliacao.area_interesse_louvor }} {% else %} Não Escolheu {% endif %}</li>
+
             </ul>
         </div>
         <div class="list-group-item">
