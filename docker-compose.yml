@@ -11,15 +11,15 @@ services:
     env_file:
       - stack.env
     networks:
-      - cloudflare_default
+      - pi_default
     volumes:
-      - lista_tarefas_db:/var/lib/postgresql/data
-      - user_listas:/app/
+      - ipja_db:/var/lib/postgresql/data
+      - ipja_app:/app/
 
 volumes:
-  lista_tarefas_db:
-  user_listas:
+  ipja_db:
+  ipja_app:
 
 networks:
-  cloudflare_default:
+  pi_default:
     external: true
