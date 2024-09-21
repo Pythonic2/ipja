@@ -17,10 +17,6 @@ load_dotenv()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-p#&xr41so3ewnn9m*&g-ij%k*#1nb07pt!bcb)i&8g(=w@&zk5'
 
 # SECURITY WARNING: don't run with debug turned on in production!

@@ -103,15 +103,17 @@ class ListAvaliacoesView(TemplateView):
         }
         return render(request, self.template_name, context)
     
-
+@login_required
 def detalhe_avaliacao_htmx(request,va_id):
     av = Avaliacao.objects.get(id=va_id)
     print(av.nome)
     return render(request,'parciais/detalhe_avaliacao.html',{'avaliacao':av})
 
+@login_required
 def detalhe_avaliacao_mobile(request,va_id):
     av = Avaliacao.objects.get(id=va_id)
     print(av.nome)
     return render(request,'detalhe-av.html',{'avaliacao':av})
+
 def sucesso(request):
     return render(request, 'sucesso.html')
