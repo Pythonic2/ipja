@@ -64,8 +64,15 @@
               
                  
             </div>
+            
             <div class="wrap-login100 desktop" id="avaliacao">
               {% include 'parciais/detalhe_avaliacao.html'%}
+            </div>
+            <div class="wrap-login100 mobile">
+              {% for dizimo in dizimos %}
+                <span>Previsão Dízimo:<strong><span class="badge bg-success">{{dizimo}}</span></strong></span><br>
+              {% endfor %}
+            <span><strong>Usuario: {{request.user.username}}</strong><br>
             </div>
             {%for av in avaliacoes%}
             <div class="wrap-login100 mobile">
