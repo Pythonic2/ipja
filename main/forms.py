@@ -198,8 +198,9 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0",
+                "max":"5",
+                "min":"0",
+
                
             }
         ))
@@ -212,7 +213,6 @@ class AvaliacaoForm(forms.ModelForm):
                 "class": "input100",
                 "type":"number",
                 "max":"5", "min":"0",
-"value":"0",
                
             }
         ))
@@ -223,8 +223,9 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0",
+                "max":"5",
+                "min":"0",
+
                
             }
         ))
@@ -235,8 +236,9 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0",
+                "max":"5",
+                "min":"0",
+
                
             }
         ))
@@ -247,8 +249,8 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0"
+                "max":"5",
+                "min":"0",
                
             }
         ))
@@ -259,8 +261,9 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0",
+                "max":"5",
+                "min":"0",
+
                
             }
         ))
@@ -271,8 +274,8 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0",
+                "max":"5",
+                "min":"0",
                
             }
         ))
@@ -283,8 +286,8 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0",
+                "max":"5",
+                "min":"0"
                
             }
         ))
@@ -295,8 +298,9 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0", 
+                "max":"5",
+                "min":"0",
+
                
             }
         ))
@@ -307,8 +311,9 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0",
+                "max":"5",
+                "min":"0",
+
                
             }
         ))
@@ -319,8 +324,9 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0", 
+                "max":"5",
+                "min":"0",
+
                
             }
         ))
@@ -331,8 +337,8 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0", 
+                "max":"5",
+                "min":"0",
                
             }
         ))
@@ -344,8 +350,8 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0", 
+                "max":"5",
+                "min":"0",
                
             }
         ))
@@ -356,12 +362,14 @@ class AvaliacaoForm(forms.ModelForm):
                 "placeholder": "de 1 a 5",
                 "class": "input100",
                 "type":"number",
-                "max":"5", "min":"0",
-"value":"0",
+                "max":"5",
+                "min":"0",
+
                
             }
         ))
     dizimo = forms.DecimalField(
+        required=False,
         max_digits=10,
         decimal_places=2,
         widget=forms.NumberInput(

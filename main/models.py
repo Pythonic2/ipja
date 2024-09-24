@@ -42,7 +42,7 @@ class Avaliacao(models.Model):
     nome = models.CharField(max_length=100, blank=True, null=True)
     sexo = models.CharField(max_length=1, choices=SEXO_CHOICES)
     nascimento = models.DateField()
-    celular = models.CharField(max_length=11)
+    celular = models.CharField(max_length=255)
     social = models.CharField(max_length=255, blank=True, null=True, default='não tem')
     relacao = models.CharField(max_length=30, choices=RELACAO_CHOICES)
     sociedade = MultiSelectField(choices=SOCIEDADES_CHOICES)
