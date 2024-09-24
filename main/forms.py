@@ -191,8 +191,9 @@ class AvaliacaoForm(forms.ModelForm):
                 "class": "input100"
             }
         ))
-    area_interesse_comunicacao = forms.CharField(
+    area_interesse_comunicacao = forms.IntegerField(
         required=False,
+        
         widget=forms.TextInput(
             attrs={
                 "placeholder": "de 1 a 5",
@@ -203,7 +204,22 @@ class AvaliacaoForm(forms.ModelForm):
 
                
             }
-        ))
+           
+            ),
+        initial=0,
+        )
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        # Itera sobre os campos para processar aqueles que começam com 'area_interesse'
+        for field in cleaned_data.keys():
+            if field.startswith('area_interesse'):
+                value = cleaned_data.get(field)
+                if value in (None, ''):  # Se o valor é None ou string vazia
+                    cleaned_data[field] = 0  # Define o valor padrão como 0
+
+        return cleaned_data
+    
     area_interesse_evangelismo_missoes = forms.CharField(
         required=False,
         widget=forms.TextInput(
@@ -355,7 +371,7 @@ class AvaliacaoForm(forms.ModelForm):
                
             }
         ))
-    area_interesse_pregacao = forms.CharField(
+    area_interesse_pregacao = forms.IntegerField(
         required=False,
         widget=forms.TextInput(
             attrs={
