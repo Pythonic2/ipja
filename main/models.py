@@ -114,7 +114,7 @@ class Avaliacao(models.Model):
         validators=[MinValueValidator(0), MaxValueValidator(5)],  blank=True, null=True, default=0,
         help_text="Escolha um número de 1 a 5 para definir a prioridade"
     )
-    dizimo = models.DecimalField(max_digits=10, decimal_places=2,default=0)
+    dizimo = models.DecimalField(max_digits=10, decimal_places=2,default=0, null=True, blank=True)
 
     data_avaliacao = models.DateField(auto_now_add=True)
 
