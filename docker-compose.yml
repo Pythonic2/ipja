@@ -10,8 +10,8 @@ services:
       - 8004:8004
     # env_file:
     #   - stack.env
-    networks:
-      - pi_default
+    # networks:
+    #   - pi_default
     volumes:
       - ipja_db:/var/lib/postgresql/data
       - ipja_app:/app/
@@ -20,6 +20,6 @@ volumes:
   ipja_db:
   ipja_app:
 
-networks:
-  pi_default:
-    external: true
+# networks:
+#   pi_default:
+#     external: true
