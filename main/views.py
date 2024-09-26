@@ -83,7 +83,6 @@ class ListAvaliacoesView(TemplateView):
     @method_decorator(login_required)
     def get(self, request):
         
-        avaliacoes = Avaliacao.objects.all().order_by('-id')
         mensagem = calcular_dizimos_por_ano()
         ano_atual = datetime.now().year
 
@@ -95,11 +94,12 @@ class ListAvaliacoesView(TemplateView):
 
         # Filtrar dízimos pelo ano atual
         prev_diz = PrevDizimos.objects.filter(ano=ano_atual)
-
+        conta_avlc =  Avaliacao.objects.all().count()
         # Criar contexto
         context = {
             'avaliacoes': avaliacoes,
-            'dizimos': [dizimo.valor for dizimo in prev_diz]
+            'dizimos': [dizimo.valor for dizimo in prev_diz],
+            'total_avlc':conta_avlc
         }
         return render(request, self.template_name, context)
     
