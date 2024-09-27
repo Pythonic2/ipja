@@ -7,18 +7,18 @@ services:
     pull_policy: build
     restart: always
     ports:
-      - 8004:8004
+      - 8005:8005
     env_file:
       - stack.env
     networks:
       - pi_default
     volumes:
-      - ipja_db:/var/lib/postgresql/data
-      - ipja_app:/app/
+      - ipja2_db:/var/lib/postgresql/data
+      - ipja2_app:/app/
 
 volumes:
-  ipja_db:
-  ipja_app:
+  ipja2_db:
+  ipja2_app:
 
 networks:
   pi_default:
