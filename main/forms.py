@@ -191,197 +191,122 @@ class AvaliacaoForm(forms.ModelForm):
                 "class": "input100"
             }
         ))
-    area_interesse_comunicacao = forms.IntegerField(
+    area_interesse_comunicacao = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
+                "required":"true",
 
-               
             }
-           
-            ),
-        initial=0,
-        )
-    def clean(self):
-        cleaned_data = super().clean()
-        
-        # Itera sobre os campos para processar aqueles que começam com 'area_interesse'
-        for field in cleaned_data.keys():
-            if field.startswith('area_interesse'):
-                value = cleaned_data.get(field)
-                if value in (None, ''):  # Se o valor é None ou string vazia
-                    cleaned_data[field] = 0  # Define o valor padrão como 0
+        ))
+    area_interesse_evangelismo_missoes = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
+        required=False,
+        widget=forms.Select(
+            attrs={
+                "class": "input100",
+                "required":"true",
 
-        return cleaned_data
-    
-    area_interesse_evangelismo_missoes = forms.CharField(
-        required=False,
-        widget=forms.TextInput(
-            
-            attrs={
-                "placeholder": "de 1 a 5",
-                "class": "input100",
-                "type":"number",
-                "max":"5", "min":"0",
-               
             }
         ))
-    area_interesse_projeto_viver = forms.CharField(
+    area_interesse_projeto_viver = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
+                "required":"true",
 
-               
             }
         ))
-    area_interesse_departamento_infantil = forms.CharField(
+    area_interesse_departamento_infantil = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
+                "required":"true",
 
-               
             }
         ))
-    area_interesse_acao_social_diaconia = forms.CharField(
+    area_interesse_acao_social_diaconia = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
-               
-            }
-        ))
-    area_interesse_visitacao = forms.CharField(
-        required=False,
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "de 1 a 5",
-                "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
+                "required":"true",
 
-               
             }
         ))
-    area_interesse_recepcao = forms.CharField(
+    area_interesse_visitacao = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
-               
-            }
-        ))
-    area_interesse_zeladoria = forms.CharField(
-        required=False,
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "de 1 a 5",
-                "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0"
-               
-            }
-        ))
-    area_interesse_eventos = forms.CharField(
-        required=False,
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "de 1 a 5",
-                "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
+                "required":"true",
 
-               
             }
         ))
-    area_interesse_ensino = forms.CharField(
+    area_interesse_recepcao = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
+                "required":"true",
 
-               
             }
         ))
-    area_interesse_secretaria = forms.CharField(
+    area_interesse_zeladoria = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
+                "required":"true",
 
-               
             }
         ))
-    area_interesse_comunicacao = forms.CharField(
+    area_interesse_eventos = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
-               
+                "required":"true",
+
+            }
+        ))
+    area_interesse_ensino = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
+        required=False,
+        widget=forms.Select(
+            attrs={
+                "class": "input100",
+                "required":"true",
+
+            }
+        ))
+    area_interesse_secretaria = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
+        required=False,
+        widget=forms.Select(
+            attrs={
+                "class": "input100",
+                "required":"true",
+
             }
         ))
     
-    area_interesse_louvor = forms.CharField(
+    area_interesse_louvor = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
-               
+                "required":"true",
+
             }
         ))
-    area_interesse_pregacao = forms.IntegerField(
+    area_interesse_pregacao = forms.ChoiceField(choices=Avaliacao.INTERESSE_CHOICES,
         required=False,
-        widget=forms.TextInput(
+        widget=forms.Select(
             attrs={
-                "placeholder": "de 1 a 5",
                 "class": "input100",
-                "type":"number",
-                "max":"5",
-                "min":"0",
+                "required":"true",
 
-               
             }
         ))
     dizimo = forms.DecimalField(
